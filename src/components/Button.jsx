@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Imported  styles
 import '../styles/Button.css';
 
 function Button({ label, onClick, className  }) {

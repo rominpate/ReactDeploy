@@ -1,11 +1,15 @@
 import { useState, useRef } from 'react';
-import Button from './Button'; // Import the Button component
+
+// Imported  component
+import Button from './Button'; 
+import Dashboard from './Dashboard';
 
 
 function Connect(){
     const [log, setLog] = useState("");
     const [ip, setIp] = useState("");
     const ws = useRef(null);
+    const [isConnected, setIsConnected] = useState(false);
 
     function handleIP(event){
         setIp(event.target.value);
@@ -14,6 +18,7 @@ function Connect(){
     const connect = () => {
       if (ws.current) {
         ws.current.close();
+        setIsConnected(false);
         return;
       }
   
@@ -23,6 +28,7 @@ function Connect(){
       console.log(url);
   
       ws.current.onopen = function() {
+        setIsConnected(true);
         setLog((prevLog) => 'CONNECTION OPENED<br/><hr>' + prevLog);
       };
   
@@ -44,20 +50,23 @@ function Connect(){
   
     const can_Stop = () => {
       if (!ws.current) return;
-  
-      console.log('CAN 1 STOP Called');
       ws.current.send('CAN 1 STOP');
+      setIsConnected(false);
       setLog((prevLog) => `SENT: CAN 1 STOP<br/><hr>` + prevLog);
     };
 
     return (
         <div>
-        <input type="text" placeholder='Enter IP address of device' onChange={handleIP} value={ip}/>
-          <Button className="button connect-button" label="Connect" onClick={connect} />
-          <Button className="button stop-button" label="Stop CAN 1" onClick={can_Stop} />
-          <div>Event log:</div>
-          <div id="log" dangerouslySetInnerHTML={{ __html: log }} />
+            <input type="text" placeholder='Enter IP address of device' onChange={handleIP} value={ip}/>
+            <Button className="button connect-button" label="Connect" onClick={connect} />
+            <Button className="button stop-button" label="Stop CAN 1" onClick={can_Stop} />
+            {/* <div>Event log:</div>
+            <div id="log" dangerouslySetInnerHTML={{ __html: log }} /> */}
+
+            {/*{isConnected && <Dashboard/>}*/}  {/*if WebSocket connection is open, show Dashboard*/}
+            <Dashboard/>
         </div>
+
       );
 }
 

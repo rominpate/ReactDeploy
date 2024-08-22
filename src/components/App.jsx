@@ -1,6 +1,10 @@
 import { useState, useRef } from 'react';
+
+// Imported  styles
 import '../styles/App.css';
-import Connect from './Connect';  // Import the Connect component
+
+// Imported  component
+import Connect from './Connect';  
 
 
 function App() {
