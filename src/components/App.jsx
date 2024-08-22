@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import Button from './Button'; // Import the Button component
-import './App.css';
+import '../styles/App.css';
 
 function App() {
   const [log, setLog] = useState("");
