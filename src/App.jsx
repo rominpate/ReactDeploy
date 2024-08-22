@@ -48,8 +48,8 @@ function App() {
     <div>
       <h1>WebSocket Test Client</h1>
       {/* Use the Button component */}
-      <Button label="Connect" onClick={connect} />
-      <Button label="Stop CAN 1" onClick={can_Stop} />
+      <Button className="button connect-button" label="Connect" onClick={connect} />
+      <Button className="button stop-button" label="Stop CAN 1" onClick={can_Stop} />
       <div>Event log:</div>
       <div id="log" dangerouslySetInnerHTML={{ __html: log }} />
     </div>
