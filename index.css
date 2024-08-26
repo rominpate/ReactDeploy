@@ -1,0 +1,27 @@
+html {
+    box-sizing: border-box; /* ensures that padding and border are included in the width and height */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 5px;
+    /* background-color: yellow; */
+}
+
+body {
+    box-sizing: border-box; /* ensures that padding and border are included in the width and height */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    
+}
+
+#root {
+    box-sizing: border-box; /* ensures that padding and border are included in the width and height */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* background-color: blue; */
+}

@@ -4,15 +4,14 @@ import { useState, useRef } from 'react';
 import '../styles/App.css';
 
 // Imported  component
-import Connect from './Connect';  
+import Dashboard from './Dashboard';
 
 
 function App() {
 
   return (
-    <div>
-      <h1>WebSocket Test Client</h1>
-      <Connect />
+    <div id='app'>
+      <Dashboard/>
     </div>
   );
 }

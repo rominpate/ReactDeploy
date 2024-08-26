@@ -56,15 +56,15 @@ function Connect(){
     };
 
     return (
-        <div>
-            <input type="text" placeholder='Enter IP address of device' onChange={handleIP} value={ip}/>
+        <div id='connect'>
+            {/* <input type="text" placeholder='Enter IP address of device' onChange={handleIP} value={ip}/>
             <Button className="button connect-button" label="Connect" onClick={connect} />
-            <Button className="button stop-button" label="Stop CAN 1" onClick={can_Stop} />
+            <Button className="button stop-button" label="Stop CAN 1" onClick={can_Stop} /> */}
             {/* <div>Event log:</div>
             <div id="log" dangerouslySetInnerHTML={{ __html: log }} /> */}
 
             {/*{isConnected && <Dashboard/>}*/}  {/*if WebSocket connection is open, show Dashboard*/}
-            <Dashboard/>
+            
         </div>
 
       );
