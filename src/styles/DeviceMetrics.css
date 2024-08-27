@@ -1,0 +1,23 @@
+#deviceMetrics{
+    box-sizing: border-box;
+    position: absolute;
+    top: 15px;
+    left: 46em;
+    width: 711px;
+    height: 55px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(43, 43, 43, 0.14)  0 0px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+}
+
+.device-metrics-heading{
+    position: relative;
+    bottom: 17px;
+    left: 18px;
+    width: fit-content;
+    height: fit-content;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+}

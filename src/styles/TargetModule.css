@@ -1,9 +1,9 @@
-#infoModule{
+#targetModule{
     box-sizing: border-box;
     position: relative;
     left: 5px;
     top: 10px;
-    width: calc(100% - 10px);
+    width: 711px;
     height: 55px;
     padding: 5px;
     display: flex;
@@ -12,7 +12,7 @@
 
 }
 
-.info-Module-heading{
+.target-module-heading{
     position: relative;
     bottom: 19px;
     left: 17px;
@@ -24,7 +24,7 @@
     padding: 0;
 }
 
-.info-module-content{
+.target-module-content{
     display: flex;
     gap: 24px;
     position: absolute;
@@ -32,16 +32,48 @@
     left: 13px;
 }
 
-
 .connection{
     display: flex;
     gap: 10px;
     padding-right: 27px;
-    border-right: 3px solid rgb(90, 90, 90);
+    border-right: 3px solid rgb(172, 170, 170);
+}
+
+.connection div{
+    position: relative;
+    top: 4px;
+    left: 8px;
+    height: 32px;
+    border-radius: 5px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.connection div:hover{
+    transform: scale(1.10); /* Slightly reduce the scale on click */
+}
+
+.connection div:active{
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .start-image, .stop-image{
-    width: 45px;
+    width: 32px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.sts{
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    padding-right: 27px;
+    border-right: 3px solid rgb(172, 170, 170);
+
+}
+
+.sts p{
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -49,9 +81,13 @@
     display: flex;
     flex-direction: column;
     padding-right: 27px;
-    border-right: 3px solid rgb(90, 90, 90);
+    border-right: 3px solid rgb(172, 170, 170);
 }
 
+.device-s-number{
+    padding-right: 0;
+    border-right: none;
+}
 .device p , .device-name p, .device-s-number p{
     margin: 0;
     padding: 0;

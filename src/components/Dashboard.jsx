@@ -5,13 +5,15 @@ import '../styles/Dashboard.css';
 
 // Imported  component
 import SelectModule from './SelectModule';
-import InfoModule from './InfoModule';
+import TargetModule from './TargetModule';
+import DeviceMetrics from './DeviceMetrics';
 
 
 function Dashboard(){
  return (
     <div id='dashboard'>
-        <InfoModule/>
+        <TargetModule/>
+        <DeviceMetrics/>
         <SelectModule/>
     </div>
 );
