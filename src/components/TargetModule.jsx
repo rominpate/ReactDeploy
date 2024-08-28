@@ -1,7 +1,13 @@
 import { useState, useRef } from 'react';
 
-// Imported styles
+// Imported styles:
 import '../styles/TargetModule.css';
+
+// Imported  component:
+import Led from './Led';
+
+
+
 
 function TargetModule() {
 
@@ -19,7 +25,7 @@ function TargetModule() {
     };
 
     // Inline styles for the LED
-    const ledStyle = {
+    const ledCSS = {
         margin: '0 auto',
         width: '24px',
         height: '24px',
@@ -30,7 +36,7 @@ function TargetModule() {
     
     return (
         <div id="targetModule">
-            <p className='target-module-heading'>Target</p>
+            {/* <p className='target-module-heading'>Target</p> */}
             <div className="target-module-content">
                 <div className='connection'>
                     <div>
@@ -42,7 +48,8 @@ function TargetModule() {
                 </div>
                 <div className='sts' >
                     <p>STS</p>
-                    <div class="led" style={ledStyle}></div>
+                    {/* <div class="led" ></div> */}
+                    <Led ledStyle={ledCSS}/>
                 </div>
                 <div className='device' >
                     <p>Device:</p>
@@ -63,3 +70,7 @@ function TargetModule() {
 }
 
 export default TargetModule;
+
+
+
+

@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
 
-// Imported  styles
+// Imported  styles:
 import '../styles/App.css';
 
-// Imported  component
+// Imported  component:
 import Dashboard from './Dashboard';
 
 

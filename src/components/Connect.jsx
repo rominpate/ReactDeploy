@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 
-// Imported  component
+// Imported  component:
 import Button from './Button'; 
 import Dashboard from './Dashboard';
 

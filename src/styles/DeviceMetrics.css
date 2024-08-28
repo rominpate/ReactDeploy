@@ -2,8 +2,8 @@
     box-sizing: border-box;
     position: absolute;
     top: 15px;
-    left: 46em;
-    width: 711px;
+    left: 56em;
+    width: 41em;
     height: 55px;
     padding: 5px;
     border-radius: 10px;
@@ -20,4 +20,32 @@
     font-weight: 800;
     margin: 0;
     padding: 0;
+}
+
+.device-metrics-content{
+    display: flex;
+    gap: 40px;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+
+.cpu-load, .run-time, .memory, .bandwidth {
+    display: flex;
+    flex-direction: column;
+    padding-right: 35px;
+    border-right: 3px solid rgb(172, 170, 170);
+}
+
+.cpu-load p, .run-time p, .memory p, .bandwidth p {
+    margin: 0;
+    padding: 0;
+}
+
+.cpu-load p:nth-child(2), .run-time p:nth-child(2), .memory p:nth-child(2), .bandwidth p:nth-child(2){
+    font-weight: 800;
+}
+
+.bandwidth {
+    border: none;
 }

@@ -1,0 +1,46 @@
+#optionsModule{
+    box-sizing: border-box;
+    position: absolute;
+    top: 15px;
+    left: 98.5em;
+    width: 33em;
+    height: 55px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(43, 43, 43, 0.14)  0 0px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+}
+
+
+.options-module-content{
+    position: relative;
+    top: 5px;
+    left: 1em;
+    display: flex;
+    gap: 4em;
+}
+
+.reset-layout-image, .question-image{
+    width: 35px;
+    cursor: pointer;
+    border-radius: 45%;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.reset-layout-image:hover,  .console-image:hover, .statistics-image:hover, .question-image:hover, .setting-image:hover{
+    transform: scale(1.10); /* Slightly reduce the scale on click */
+}
+
+.reset-layout-image:active, .console-image:active, .statistics-image:active, .question-image:active, .setting-image:active{
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.console-image, .statistics-image, .question-image, .setting-image{
+    width: 45px;
+    height: 35px;
+    cursor: pointer;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.setting-image{
+    border-radius: 20%;
+}

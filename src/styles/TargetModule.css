@@ -3,7 +3,7 @@
     position: relative;
     left: 5px;
     top: 10px;
-    width: 711px;
+    width: 54em;
     height: 55px;
     padding: 5px;
     display: flex;
@@ -26,23 +26,23 @@
 
 .target-module-content{
     display: flex;
-    gap: 24px;
+    gap:40px;
     position: absolute;
-    top: 9px;
+    top: 10px;
     left: 13px;
 }
 
 .connection{
     display: flex;
     gap: 10px;
-    padding-right: 27px;
+    padding-right: 40px;
     border-right: 3px solid rgb(172, 170, 170);
 }
 
 .connection div{
     position: relative;
-    top: 4px;
-    left: 8px;
+    top: 3px;
+    left: 12px;
     height: 32px;
     border-radius: 5px;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3); 
@@ -66,7 +66,7 @@
     display: flex;
     gap: 11px;
     align-items: center;
-    padding-right: 27px;
+    padding-right: 35px;
     border-right: 3px solid rgb(172, 170, 170);
 
 }
@@ -80,7 +80,7 @@
 .device, .device-name, .device-s-number{
     display: flex;
     flex-direction: column;
-    padding-right: 27px;
+    padding-right: 35px;
     border-right: 3px solid rgb(172, 170, 170);
 }
 

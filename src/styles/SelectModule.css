@@ -1,18 +1,16 @@
 #selectModule{
     box-sizing: border-box;
-    height: 80%;
-    width: 12%;
-    min-width: 245px;
-    max-width: 350px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    height: 30em;
+    width: 25em;
+    position: relative;
+    left: 10px;
+    top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
     border-radius: 10px;
     border-style: none;
     box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(43, 43, 43, 0.14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-    position: relative;
-    left: 10px;
-    top: 5%;
+    align-items: center;
+    justify-items: center;
 }
