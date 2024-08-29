@@ -6,7 +6,7 @@ import '../styles/ModuleButton.css';
 // Imported  component:
 import Led from './Led';
 
-function ModuleButton(){
+function ModuleButton(props){
 
     // Inline styles for the LED
     const ledCSS = {
@@ -20,8 +20,8 @@ function ModuleButton(){
     
 
     return ( 
-        <div id='moduleButton' className='module-button'>
-            <p>CAN Channel 1</p>
+        <div className='module-button'>
+            <p>{props.moduleName}</p>
             <Led ledStyle={ledCSS}/>
         </div>
     )

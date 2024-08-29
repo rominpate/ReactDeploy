@@ -8,6 +8,8 @@ import SelectModule from './SelectModule';
 import TargetModule from './TargetModule';
 import DeviceMetrics from './DeviceMetrics';
 import OptionsModule from './OptionsModule';
+import LogModule from './LogModule';
+import ViewModule from './ViewModule';
 
 
 function Dashboard(){
@@ -17,7 +19,8 @@ function Dashboard(){
         <DeviceMetrics/>
         <OptionsModule/>
         <SelectModule/>
-
+        <LogModule/>
+        <ViewModule/>
     </div>
 );
 }

@@ -1,17 +1,12 @@
-#selectModule{
+#logModule{
     box-sizing: border-box;
-    height: 32em;
+    height: 23.7em;
     width: 25em;
     padding: 5px;
     position: relative;
     left: 10px;
-    top: 2em;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(7, 1fr);
+    top: 3em;
     border-radius: 10px;
     border-style: none;
     box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(43, 43, 43, 0.14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
-    align-items: center;
-    justify-items: center;
 }
