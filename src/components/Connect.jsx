@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react';
 
 // Imported  component:
-import Button from './Button'; 
-import Dashboard from './Dashboard';
+import Button     from  './Button'; 
+import Dashboard  from  './Dashboard';
 
 
 function Connect(){

@@ -1,0 +1,81 @@
+
+.each-can-module, .each-other-module{
+    width: 100%;   
+    height: 95%; 
+    background-color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(43, 43, 43, 0.14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    border-radius: 15px;
+}
+
+.can-module-name, .other-module-name {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.each-can-module img, .each-other-module img{
+    position: relative;
+    top: -8.5px;
+    left: 18.7em;
+    width: 1.25em;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.each-can-module img:hover, .each-other-module img:hover{
+    transform: scale(1.2); /* Increase the size */
+}
+
+.each-other-module img{
+    left: 16em;
+}
+
+.each-can-module span, .each-other-module span{
+    position: relative;
+    top: -14px;
+    left: 19.8em;
+    width: 20px;
+    cursor: pointer;
+}
+
+.each-other-module span{
+    left: 17.2em;
+}
+
+.each-can-module span:hover, .each-other-module span:hover{
+        color: red;
+}
+
+.can-module-info, .other-module-info{
+    box-sizing: border-box;
+    position: relative;
+    top: 3px;
+    left: 10px;
+    width: 95%;
+    height: 87%;
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.other-module-info{
+    top: 2px;
+    left: 10px;
+    width: 94%;
+    height: 85%;
+}
+
+.can-module-info div, .other-module-info div{
+    display: flex ;
+    justify-content: space-between;
+}
+
+.can-module-info div label, .other-module-info div label{
+    width: 100px;
+}
+

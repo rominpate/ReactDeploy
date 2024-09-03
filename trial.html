@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAN 1 Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .dashboard-container {
+            position: relative;
+            width: 200px;
+        }
+        .dashboard {
+            border: 1px solid #ccc;
+            padding: 20px 15px 15px 15px; /* Add extra padding at the top */
+            font-size: 14px;
+        }
+        .dashboard h3 {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            margin: 0;
+            font-size: 16px;
+            background-color: white;
+            padding: 0 5px; /* Add padding to overlap the border neatly */
+        }
+        .status {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            background-color: green;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .status-text {
+            margin: 0;
+        }
+        .info-item {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .info-item label {
+            margin-right: 10px;
+        }
+        .info-item input {
+            border: 1px solid #ccc;
+            padding: 2px;
+            width: 60px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="dashboard">
+        <h3>CAN 1</h3>
+        <div class="status">
+            <div class="status-indicator"></div>
+            <span class="status-text">running</span>
+        </div>
+        <div class="info-item">
+            <label for="rx-counter">RX counter:</label>
+            <input type="text" id="rx-counter" value="1" readonly>
+        </div>
+        <div class="info-item">
+            <label for="tx-counter">TX counter:</label>
+            <input type="text" id="tx-counter" value="1416" readonly>
+        </div>
+        <div class="info-item">
+            <label for="err-counter">Err counter:</label>
+            <input type="text" id="err-counter" value="0" readonly>
+        </div>
+        <div class="info-item">
+            <label for="ovr-counter">Ovr counter:</label>
+            <input type="text" id="ovr-counter" value="0" readonly>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+

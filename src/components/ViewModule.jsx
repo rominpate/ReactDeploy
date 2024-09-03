@@ -4,41 +4,35 @@ import { useState, useRef } from 'react';
 import '../styles/ViewModule.css';
 
 // Imported  component:
+import EachModule from './EachModule';
 
-function ViewModule(){
+function ViewModule({ firstRow, secondAndThirdRows }){
 
-    // State to keep track of the boxes in each row
-     const [firstRow, setFirstRow] = useState([null, null, null, null]);
-    const [secondAndThirdRows, setSecondAndThirdRows] = useState([null, null, null, null, null, null, null, null, null, null]);
-
-    return ( 
-        <div id='viewModule' className='view-module'>
+    return (
+        <div className="view-module">
             <div className="row">
-                {firstRow.map((box, index) => (
-                    <div key={index} className="cell">
-                        1
-                        {/* {box && <div className="box">{box}</div>} */}
-                    </div>
-                ))}
+                {firstRow.map((box, index) => {
+                    if (box) {
+                        return (<div className='box'>{box}</div>)
+                    }
+                })}
             </div>
             <div className="row">
-                {secondAndThirdRows.slice(0, 5).map((box, index) => (
-                    <div key={index} className="cell">
-                        2
-                        {/* {box && <div className="box">{box}</div>} */}
-                    </div>
-                ))}
+                {secondAndThirdRows.slice(0, 5).map((box, index) => {
+                    if (box) {
+                        return (<div className='box'>{box}</div>)
+                    }
+                })}
             </div>
             <div className="row">
-                {secondAndThirdRows.slice(5, 10).map((box, index) => (
-                    <div key={index} className="cell">
-                        3
-                        {/* {box && <div className="box">{box}</div>} */}
-                    </div>
-                ))}
+                {secondAndThirdRows.slice(5, 10).map((box, index) => {
+                    if (box) {
+                        return (<div className='box'>{box}</div>)
+                    }
+                })}
             </div>
         </div>
-    )
+    );
 
 }
 
