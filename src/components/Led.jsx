@@ -9,7 +9,7 @@ function Led(props){
 
 
     return ( 
-        <div class="led" style={props.ledStyle}>
+        <div className="led" style={props.ledStyle}>
 
         </div>
     )
