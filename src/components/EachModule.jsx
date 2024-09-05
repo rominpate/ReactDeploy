@@ -8,7 +8,7 @@ import Led from './Led';
 
 
 
-function EachModule({ moduleName }) {
+function EachModule({ id, moduleName, closeModule}) {
 
     //Assignment of the className according to the Module Selected.
     //Need this because other module except other module has different CSS Styling
@@ -30,11 +30,10 @@ function EachModule({ moduleName }) {
 
 
     return (
-
-            <div id='eachModule' className={class1} >
+            <div id={id} className={class1} >
                 <h4 className={class2}>{moduleName}</h4>
                 <img src="./info.svg" alt="" />
-                <span>X</span>
+                <span onClick={()=>{closeModule(moduleName, id)}}>X</span>
                 <div className={class3}>
                     <div>
                     {/* to show the status  */}
