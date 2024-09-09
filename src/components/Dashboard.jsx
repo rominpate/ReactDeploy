@@ -27,7 +27,7 @@ function Dashboard() {
         return savedClickedBoxes ? JSON.parse(savedClickedBoxes) : [];
     });
 
-    // // Save state to localStorage whenever firstRow, secondAndThirdRows, or clickedBoxes change
+    // Save state to localStorage whenever firstRow, secondAndThirdRows, or clickedBoxes change
     useEffect(() => {
         localStorage.setItem('firstRow', JSON.stringify(firstRow));
     }, [firstRow]);
@@ -42,34 +42,35 @@ function Dashboard() {
 
 
     // Function to handle button click (module clicked) from the SelectModule component.
-    const handleButtonClick = (eachModuleName, buttonNumber) => {
-        if (!clickedBoxes.includes(buttonNumber)) {
-            //Only display the corresponding module if it is not already displayed.
-            if (buttonNumber >= 1 && buttonNumber <= 4) {
-                // Handle buttons 1 to 4 (First row)
+    const handleButtonClick = (eachModuleName) => {
+        // Only display the corresponding module if it is not already displayed.
+        if (!clickedBoxes.includes(eachModuleName)) {
+            // Handle buttons 1 to 4 (First row)
+            if (['CAN Channel 1', 'CAN Channel 2', 'CAN Channel 3', 'CAN Channel 4'].includes(eachModuleName)) {
+                // Updates the firstRow array
                 setFirstRow((prev) => {
-                    //updates the firstRow array
                     const updatedFirstRow = [  ...prev, eachModuleName];
                     return updatedFirstRow;
                 });
+                // Updates the ClickedBoxes array
                 setClickedBoxes((prev) => {
-                    //updates the ClickedBoxes array
-                    const updatedClickedBoxes = [ ...prev, buttonNumber];
+                    const updatedClickedBoxes = [ ...prev, eachModuleName];
                     return updatedClickedBoxes;
                 });
-            } else if (buttonNumber >= 5 && buttonNumber <= 13) {
-                // Handle buttons 5 to 13 (Second and Third rows)
+            // Handle buttons 5 to 13 (Second and Third rows)
+            } else {
+                // Updates the SecondAndThirdRows array
                 setSecondAndThirdRows((prev) => {
-                    //updates the SecondAndThirdRows array
                     const updatedSecondAndThirdRows = [ ...prev, eachModuleName];
                     return updatedSecondAndThirdRows;
                 });
+                // Updates the ClickedBoxes array
                 setClickedBoxes((prev) => {
-                    //updates the ClickedBoxes array
-                    const updatedClickedBoxes = [  ...prev, buttonNumber];
+                    const updatedClickedBoxes = [  ...prev, eachModuleName];
                     return updatedClickedBoxes;
                 });
             }
+
         }
     };
 
@@ -84,23 +85,36 @@ function Dashboard() {
         setClickedBoxes([]);
     };
 
-    function undisplayModule(moduleName, moduleId){
-        console.log(moduleName);
-        console.log(moduleId);
-
-
-        ['CAN Channel 1', 'CAN Channel 2', 'CAN Channel 3', 'CAN Channel 4'].includes(moduleName) ? 
-                setFirstRow((prev) => {
-                    console.log('prev:',prev); 
-                    console.log(clickedBoxes);
-                    return prev.filter((item, index) => {
-                        return index+1 !== moduleId
-                    })
+    // To 
+    function undisplayModule(moduleName){
+        // Condition to decide which function to all according to module name
+        if(['CAN Channel 1', 'CAN Channel 2', 'CAN Channel 3', 'CAN Channel 4'].includes(moduleName)){
+            setFirstRow((prev) => {
+                return prev.filter((item) => {
+                    return item !== moduleName;
                 })
-                 : 
-                null;
-            
-    }
+            });
+
+            setClickedBoxes((prev) => {
+                return prev.filter((item) => {
+                    return item !== moduleName;
+                })
+            });
+
+        } else {
+            setSecondAndThirdRows((prev) => {
+                return prev.filter((item) => {
+                    return item !== moduleName;
+                })
+            });
+
+            setClickedBoxes((prev) => {
+                return prev.filter((item) => {
+                    return item !== moduleName;
+                })
+            });
+        }      
+    };
     
 
     return (
@@ -111,7 +125,8 @@ function Dashboard() {
                 clearLayout={clearAllData}
             />
             <SelectModule 
-                handleButtonClick={handleButtonClick} 
+                handleButtonClick={handleButtonClick}
+                clickedBoxes={clickedBoxes}
             />
             <LogModule />
             <ViewModule

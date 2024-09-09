@@ -1,4 +1,4 @@
-#selectModule{
+.selectModule{
     box-sizing: border-box;
     height: 32em;
     width: 25em;
@@ -15,3 +15,5 @@
     align-items: center;
     justify-items: center;
 }
+
+

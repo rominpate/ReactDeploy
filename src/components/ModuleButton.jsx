@@ -6,7 +6,7 @@ import '../styles/ModuleButton.css';
 // Imported  component:
 import Led from './Led';
 
-function ModuleButton(props){
+function ModuleButton({moduleName, isSelected }){
 
     // Inline styles for the LED
     const ledCSS = {
@@ -17,11 +17,11 @@ function ModuleButton(props){
         borderRadius: '50%',
         boxShadow: `rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, greenYellow 0 1px 5px`
     };
-    
+
 
     return ( 
-        <div className='module-button'>
-            <p>{props.moduleName}</p>
+        <div className={`module-button  ${isSelected && 'highlight' }`}>
+            <p>{moduleName}</p>
             <Led ledStyle={ledCSS}/>
         </div>
     )

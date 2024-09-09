@@ -12,11 +12,9 @@ function ViewModule({firstRow, secondAndThirdRows, undisplayModule}) {
         <div className="view-module">
             <div className="row">
                 {firstRow.map((box, index) => {
-                    // Ensure box is in the correct format for rendering
-                    {/* console.log("Rendering box: ", box); */}
                     return (
                         <div key={index} className="box">
-                            <EachModule key={index} id={index + 1} moduleName={box} closeModule={undisplayModule}/>
+                            <EachModule key={index}  moduleName={box} closeModule={undisplayModule}/>
                         </div>
                     );
                 })}
@@ -24,11 +22,9 @@ function ViewModule({firstRow, secondAndThirdRows, undisplayModule}) {
 
             <div className="row">
                 {secondAndThirdRows.slice(0, 5).map((box, index) => {
-                    // Log each box before rendering
-                    {/* console.log("Rendering box: ", box); */}
                     return (
                         <div key={index} className="box">
-                            <EachModule key={index} id={index + 1} moduleName={box} closeModule={undisplayModule}/>
+                            <EachModule key={index}  moduleName={box} closeModule={undisplayModule}/>
                         </div>
                     );
                 })}
@@ -36,10 +32,9 @@ function ViewModule({firstRow, secondAndThirdRows, undisplayModule}) {
 
             <div className="row">
                 {secondAndThirdRows.slice(5, 10).map((box, index) => {
-                    {/* console.log("Rendering box: ", box); */}
                     return (
                         <div key={index} className="box">
-                            <EachModule key={index} id={index + 6} moduleName={box} closeModule={undisplayModule}/>
+                            <EachModule key={index}  moduleName={box} closeModule={undisplayModule}/>
                         </div>
                     );
                 })}
