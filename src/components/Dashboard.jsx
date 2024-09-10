@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 // Imported  styles:
 import '../styles/Dashboard.css';
 
@@ -9,6 +10,7 @@ import DeviceMetrics    from    './DeviceMetrics';
 import OptionsModule    from    './OptionsModule';
 import LogModule        from    './LogModule';
 import ViewModule       from    './ViewModule';
+import LogScreen        from    './LogScreen';    
 
 function Dashboard() {
     // State for managing rows and clicked boxes, with initial values from localStorage
@@ -26,6 +28,15 @@ function Dashboard() {
         const savedClickedBoxes = localStorage.getItem('clickedBoxes');
         return savedClickedBoxes ? JSON.parse(savedClickedBoxes) : [];
     });
+
+    // State for showing Log Screen
+    const [logScreen, setLogScreen] = useState(false);
+
+    function logScreenState(){
+        setLogScreen(!logScreen);
+    }
+
+
 
     // Save state to localStorage whenever firstRow, secondAndThirdRows, or clickedBoxes change
     useEffect(() => {
@@ -71,6 +82,8 @@ function Dashboard() {
                 });
             }
 
+        } else {
+            undisplayModule(eachModuleName)
         }
     };
 
@@ -123,17 +136,20 @@ function Dashboard() {
             <DeviceMetrics />
             <OptionsModule 
                 clearLayout={clearAllData}
+                logScreenState={logScreenState}
             />
             <SelectModule 
                 handleButtonClick={handleButtonClick}
                 clickedBoxes={clickedBoxes}
             />
             <LogModule />
-            <ViewModule
-                firstRow={firstRow}
-                secondAndThirdRows={secondAndThirdRows}
-                undisplayModule={undisplayModule}
-            />
+            { !logScreen ? (
+                <ViewModule
+                    firstRow={firstRow}
+                    secondAndThirdRows={secondAndThirdRows}
+                    undisplayModule={undisplayModule}
+                />
+            ) : (<LogScreen/>)}
         </div>
     );
 }

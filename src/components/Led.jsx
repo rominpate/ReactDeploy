@@ -5,11 +5,11 @@ import '../styles/Led.css';
 
 // Imported  component:
 
-function Led(props){
+function Led({ledStyle}){
 
 
     return ( 
-        <div className="led" style={props.ledStyle}>
+        <div className="led" style={ledStyle}>
 
         </div>
     )

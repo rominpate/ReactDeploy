@@ -1,16 +1,15 @@
-import { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Imported styles:
 import '../styles/OptionsModule.css';
 
-function OptionsModule({clearLayout}){
-
+function OptionsModule({clearLayout, logScreenState}){
 
     return (
         <div id='optionsModule'>
             <div className="options-module-content">
                 <img  className='reset-layout-image' onClick={clearLayout} src="./reset.svg" alt="Reset Layout Image" />
-                <img  className='console-image' src="./console.svg" alt="Console Image" />
+                <img  className='console-image' onClick={logScreenState} src="./console.svg" alt="Console Image" />
                 <img  className='statistics-image' src="./statistics.svg" alt="Reset Layout Image" />
                 <img  className='question-image' src="./question.svg" alt="Question Image" />
                 <img  className='setting-image' src="./setting.svg" alt="Setting Image" />

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Imported  styles:
 import '../styles/EachModule.css';

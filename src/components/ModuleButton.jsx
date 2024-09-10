@@ -8,21 +8,13 @@ import Led from './Led';
 
 function ModuleButton({moduleName, isSelected }){
 
-    // Inline styles for the LED
-    const ledCSS = {
-        margin: '0',
-        width: '16px',
-        height: '16px',
-        backgroundColor: 'greenYellow',
-        borderRadius: '50%',
-        boxShadow: `rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, greenYellow 0 1px 5px`
-    };
 
+    
 
     return ( 
-        <div className={`module-button  ${isSelected && 'highlight' }`}>
+        <div className={`module-button  ${isSelected && 'highlight' } `}>
             <p>{moduleName}</p>
-            <Led ledStyle={ledCSS}/>
+            <Led/>
         </div>
     )
 
