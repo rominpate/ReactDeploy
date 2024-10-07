@@ -1,4 +1,4 @@
-.log-module{
+.log-module {
     box-sizing: border-box;
     height: 23.7em;
     width: 25em;
@@ -8,40 +8,52 @@
     top: 3em;
     border-radius: 10px;
     border-style: none;
-    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(43, 43, 43, 0.14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px, rgba(43, 43, 43, 0.14) 0 6px 10px 0, rgba(0, 0, 0, .12) 0 1px 18px 0;
 }
 
-.log-module div{
+.heading{
+    margin: 2px;
+    margin-bottom: 5px;
+    padding: 0px 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading p {
+    margin: 0;
+}
+
+
+.log-content {
     box-sizing: border-box;
     padding: 10px;
-    height: 100%;
+    height: 92.5%;
     border: 1px solid gray;
     border-radius: 10px;
-    overflow: hidden;
     background-color: #e9e9e9;
-    /* color: whitesmoke; */
+    overflow-y: auto;  /* Ensure the div scrolls vertically */
 }
 
-.log-module div:hover{
-    overflow: auto;
+.log-module div:hover {
+    overflow-y: auto;  /* Scroll when hovered */
 }
 
-.log-module div::-webkit-scrollbar{
+.log-content::-webkit-scrollbar {
     width: 8px;
 }
 
-.log-module div::-webkit-scrollbar-track{
+.log-content::-webkit-scrollbar-track {
     background-color: lightgray;
     border-radius: 20em;
 }
 
-.log-module div::-webkit-scrollbar-thumb{
+.log-content::-webkit-scrollbar-thumb {
     background-color: darkgray;
     border-radius: 20em;
 }
 
-
-.log-module div p {
+.log-content p {
     margin: 0;
+    margin-bottom: 10px; 
+    word-break: break-word;  /* Ensure long messages wrap */
 }
-

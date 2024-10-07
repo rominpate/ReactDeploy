@@ -1,47 +1,33 @@
-import { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 
 // Imported  styles:
 import '../styles/LogModule.css';
 
 // Imported  component:
 
-function LogModule(){
+function LogModule({ logInfo, clearLogData }) {
+    const logContainerRef = useRef(null);
 
-    return ( 
+    useEffect(() => {
+        // Scroll to the bottom when the logInfo changes
+        if (logContainerRef.current) {
+            logContainerRef.current.scrollTop = logContainerRef.current.scrollHeight;
+        }
+    }, [logInfo]);
+
+    return (
         <div className='log-module'>
-            <div>
-                <p>### General(CAN Gateway Configurator) <br />
-                    Write XML files to target device... <br />
-                    ############ OK <br />
-                    Write CONF file to target device... <br />
-                    ################# OK <br />
-                    0 Error(s) and 0 Warning(s) occurred. <br />
-                    #### Verify (CAN Gateway Configurator V6) <br />
-                    0 Error(s) and 0 Warning(s) occurred. <br />
-                    #File 'D:\temp\Romin CAN@Net Config files\' <br />
-                    ### General(CAN Gateway Configurator) <br />
-                    Write XML files to target device... <br />
-                    ############ OK <br />
-                    Write CONF file to target device... <br />
-                    ################# OK <br />
-                    0 Error(s) and 0 Warning(s) occurred. <br />
-                    #### Verify (CAN Gateway Configurator V6) <br />
-                    0 Error(s) and 0 Warning(s) occurred. <br />
-                    #File 'D:\temp\Romin CAN@Net Config files\' <br />
-                    ### General(CAN Gateway Configurator) <br />
-                    Write XML files to target device... <br />
-                    ############ OK <br />
-                    Write CONF file to target device... <br />
-                    ################# OK <br />
-                    0 Error(s) and 0 Warning(s) occurred. <br />
-                    #### Verify (CAN Gateway Configurator V6) <br />
-                    0 Error(s) and 0 Warning(s) occurred. <br />
-                    #File 'D:\temp\Romin CAN@Net Config files\' <br />
-                </p>
+            <div className='heading'>
+                <p>Log: </p>
+                <button onClick={clearLogData} >Clear Log</button>
+            </div>
+            <div ref={logContainerRef} className='log-content'>
+                {logInfo.map((message, index) => (
+                    <p key={index}>{message}</p>
+                ))}
             </div>
         </div>
-    )
-
+    );
 }
 
 export default LogModule;

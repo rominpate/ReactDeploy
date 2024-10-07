@@ -8,7 +8,7 @@ import Led from './Led';
 
 
 
-function EachModule({ moduleName, closeModule}) {
+function EachModule({ moduleName, closeModule, count}) {
 
     //Assignment of the className according to the Module Selected.
     //Need this because other module except other module has different CSS Styling
@@ -44,7 +44,7 @@ function EachModule({ moduleName, closeModule}) {
                     <div>
                     {/* to show RX counter  */}
                         <label for="rx-counter">RX counter:</label>
-                        <input type="text" id="rx-counter" value="1" readOnly/><br />
+                        <input type="text" id="rx-counter" value={count} readOnly/><br />
                     </div>
 
                     <div>

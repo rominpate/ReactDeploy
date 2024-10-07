@@ -13,6 +13,10 @@ import ViewModule       from    './ViewModule';
 import LogScreen        from    './LogScreen';    
 
 function Dashboard() {
+
+    const [count, setCount] = useState(0);
+
+
     // State for managing rows and clicked boxes, with initial values from localStorage
     const [firstRow, setFirstRow] = useState(() => {
         const savedFirstRow = localStorage.getItem('firstRow');
@@ -32,10 +36,36 @@ function Dashboard() {
     // State for showing Log Screen
     const [logScreen, setLogScreen] = useState(false);
 
+    // State to change the Log module content in array form.
+    const [logInfo, setLogInfo] = useState(() => {
+        const savedLogInfo = localStorage.getItem('logInfo');
+        return savedLogInfo
+            ? JSON.parse(savedLogInfo)
+            : [`>> CAN@net NT 420  V6.04.00  with serial number 'HW907899' and IP address '169.254.186.231' connected`];
+    });
+
+    // Save state to localStorage whenever logInfo changes.
+    useEffect(() => {
+        localStorage.setItem('logInfo', JSON.stringify(logInfo));
+    }, [logInfo]);
+
+
+    // Function to add a new log message
+    const addLogMessage = (newMessage) => {
+        setLogInfo((prev) => [...prev, newMessage]);
+    };
+
+    // To clear everything from log module's web storage
+    function clearLogData () {
+        localStorage.removeItem('logInfo');
+        // Reset logInfo state to the initial log message
+        setLogInfo([`>> CAN@net NT 420  V6.04.00  with serial number 'HW907899' and IP address '169.254.186.231' connected`]);
+    };
+
+
     function logScreenState(){
         setLogScreen(!logScreen);
-    }
-
+    };
 
 
     // Save state to localStorage whenever firstRow, secondAndThirdRows, or clickedBoxes change
@@ -132,22 +162,33 @@ function Dashboard() {
 
     return (
         <div id="dashboard">
-            <TargetModule />
+            <TargetModule 
+                addLogMessage={addLogMessage} 
+                setCount={setCount}
+            />
+
             <DeviceMetrics />
+
             <OptionsModule 
                 clearLayout={clearAllData}
                 logScreenState={logScreenState}
             />
+
             <SelectModule 
                 handleButtonClick={handleButtonClick}
                 clickedBoxes={clickedBoxes}
             />
-            <LogModule />
+            <LogModule 
+                logInfo={logInfo}
+                clearLogData={clearLogData}
+            />
+
             { !logScreen ? (
                 <ViewModule
                     firstRow={firstRow}
                     secondAndThirdRows={secondAndThirdRows}
                     undisplayModule={undisplayModule}
+                    count={count}
                 />
             ) : (<LogScreen/>)}
         </div>
