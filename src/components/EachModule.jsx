@@ -8,7 +8,25 @@ import Led from './Led';
 
 
 
-function EachModule({ moduleName, closeModule, count}) {
+function EachModule({ moduleName, closeModule, dataFromDevice}) {
+
+    // Function to get the correct CAN data based on the Module name and counter type
+    const getDataAccordingToModuleName = (moduleName, counterType) => {
+        switch (moduleName) {
+            case "CAN Channel 1":
+                return dataFromDevice.CAN1[counterType] || "N/A or Error getting the Value";
+            case "CAN Channel 2":
+                return dataFromDevice.CAN2[counterType] || "N/A or Error getting the Value";
+            case "CAN Channel 3":
+                return dataFromDevice.CAN3[counterType] || "N/A or Error getting the Value";
+            case "CAN Channel 4":
+                return dataFromDevice.CAN4[counterType] || "N/A or Error getting the Value";
+            case "Mapping":
+                return dataFromDevice.Mapping[counterType] || "N/A or Error getting the Value";
+            default:
+                return "N/A";  // Default value if no specific data is available
+        }
+    };
 
     //Assignment of the className according to the Module Selected.
     //Need this because other module except other module has different CSS Styling
@@ -28,7 +46,6 @@ function EachModule({ moduleName, closeModule, count}) {
     };
     
 
-
     return (
             <div id={moduleName} className={class1} >
                 <h4 className={class2}>{moduleName}</h4>
@@ -44,25 +61,25 @@ function EachModule({ moduleName, closeModule, count}) {
                     <div>
                     {/* to show RX counter  */}
                         <label for="rx-counter">RX counter:</label>
-                        <input type="text" id="rx-counter" value={count} readOnly/><br />
+                        <input type="text" id="rx-counter" value={getDataAccordingToModuleName(moduleName, 'RX_Counter')} readOnly /><br />
                     </div>
 
                     <div>
                     {/* to show TX counter  */}
                         <label for="tx-counter">TX counter:</label>
-                        <input type="text" id="tx-counter" value="1416" readOnly /><br />
+                        <input type="text" id="tx-counter" value={getDataAccordingToModuleName(moduleName, 'TX_Counter')} readOnly /><br />
                     </div>
 
                     <div>
                     {/* to show Error counter  */}
                         <label for="err-counter">Err counter:</label>
-                        <input type="text" id="err-counter" value="0" readOnly /><br />
+                        <input type="text" id="err-counter" value={getDataAccordingToModuleName(moduleName, 'Err_Counter')} readOnly /><br />
                     </div>
 
                     <div>
-
+                    {/* to show Ovr counter  */}
                         <label for="ovr-counter">Ovr counter:</label>
-                        <input type="text" id="ovr-counter" value="0" readOnly /><br />
+                        <input type="text" id="ovr-counter" value={getDataAccordingToModuleName(moduleName, 'Ovr_Counter')} readOnly /><br />
                     </div>
                 </div>
             </div>   

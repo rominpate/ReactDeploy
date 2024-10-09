@@ -6,7 +6,7 @@ import '../styles/ViewModule.css';
 // Imported  component:
 import EachModule    from   './EachModule';
 
-function ViewModule({firstRow, secondAndThirdRows, undisplayModule, count}) {
+function ViewModule({firstRow, secondAndThirdRows, undisplayModule, dataFromDevice}) {
 
     return (
         <div className="view-module">
@@ -14,7 +14,7 @@ function ViewModule({firstRow, secondAndThirdRows, undisplayModule, count}) {
                 {firstRow.map((box, index) => {
                     return (
                         <div key={index} className="box">
-                            <EachModule key={index}  moduleName={box} closeModule={undisplayModule} count={count}/>
+                            <EachModule key={index}  moduleName={box} closeModule={undisplayModule} dataFromDevice={dataFromDevice}/>
                         </div>
                     );
                 })}
@@ -24,7 +24,7 @@ function ViewModule({firstRow, secondAndThirdRows, undisplayModule, count}) {
                 {secondAndThirdRows.slice(0, 5).map((box, index) => {
                     return (
                         <div key={index} className="box">
-                            <EachModule key={index}  moduleName={box} closeModule={undisplayModule} count={count}/>
+                            <EachModule key={index}  moduleName={box} closeModule={undisplayModule} dataFromDevice={dataFromDevice}/>
                         </div>
                     );
                 })}
@@ -34,7 +34,7 @@ function ViewModule({firstRow, secondAndThirdRows, undisplayModule, count}) {
                 {secondAndThirdRows.slice(5, 10).map((box, index) => {
                     return (
                         <div key={index} className="box">
-                            <EachModule key={index}  moduleName={box} closeModule={undisplayModule} count={count}/>
+                            <EachModule key={index}  moduleName={box} closeModule={undisplayModule} dataFromDevice={dataFromDevice}/>
                         </div>
                     );
                 })}

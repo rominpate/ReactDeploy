@@ -6,50 +6,13 @@ import '../styles/TargetModule.css';
 // Imported  component:
 import Led from './Led';
 
-
-const canData = {
-    CAN1_RX_Counter : '0',
-    CAN2_RX_Counter : '0',
-    CAN3_RX_Counter : '0',
-    CAN4_RX_Counter : '0',
-    CAN5_RX_Counter : '0'
-};
-
-// Define an array of keys for the canData object
-const keys = [
-    'CAN1_RX_Counter',
-    'CAN2_RX_Counter',
-    'CAN3_RX_Counter',
-    'CAN4_RX_Counter',
-    'CAN5_RX_Counter'
-];
-
-
-
-function TargetModule({addLogMessage, setCount}) {
-
-    
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCount(prevCount => {
-                //console.log("Current Count:", prevCount + 1); // Log the count to the console
-                return prevCount + 1;
-              });
-        }, 1000);
-    
-        return () => clearInterval(interval); // Cleanup interval on component unmount
-      }, []);
-    
-
-
+function TargetModule({addLogMessage, setDataFromDevice}) {
 
     // Initialize the WebSocket ref with null
     const ws = useRef(null);
 
     // State to manage the LED color
     const [ledColor, setLedColor] = useState('rgb(161, 160, 160)');
-
 
     // Event handler for start click
     function handleStartClick () {
@@ -65,17 +28,48 @@ function TargetModule({addLogMessage, setCount}) {
 
                 ws.current.onmessage = function(ev) {
                     var data = JSON.parse(ev.data);
- 
-                    data.map((string, index) => {
-                        canData[keys[index]] = string.split('=')[1].trim();
-                    })
+                    console.log(`TargetModule >>onessage >>ev.data : ${ev.data}`)
 
-                    // Use map to log all key-value pairs
-                    Object.entries(canData).map(([key, value]) => {
-                        addLogMessage(`${key}: ${value}`);
+                    // Extract values after '=' for each string and assign it to parseData in array format.
+                    //parsedData = ['CAN_1_RX_Counter', 'CAN_2_RX_Counter', 'CAN_3_RX_Counter', 'CAN_4_RX_Counter',
+                    //              'CAN_1_TX_Counter', 'CAN_2_TX_Counter', 'CAN_3_TX_Counter', 'CAN_4_TX_Counter',
+                    //              'Mapping_RX_Counter', Mapping_TX_Counter]
+                    const parsedData = data.map(item => item.split('=')[1].trim());
+
+                    //Set the state of dataFromDevice according to the data pushed by server
+                    //This state would only be set when there is message from server side.
+                    setDataFromDevice(prevData => {
+                        return {
+                            CAN1: {
+                                RX_Counter: parsedData[0], 
+                                TX_Counter: parsedData[4], 
+                                Err_Counter: prevData.CAN1.Err_Counter, 
+                                Ovr_Counter: prevData.CAN1.Ovr_Counter
+                            },
+                            CAN2: {
+                                RX_Counter: parsedData[1], 
+                                TX_Counter: parsedData[5], 
+                                Err_Counter: prevData.CAN2.Err_Counter, 
+                                Ovr_Counter: prevData.CAN2.Ovr_Counter
+                            },
+                            CAN3: {
+                                RX_Counter: parsedData[2], 
+                                TX_Counter: parsedData[6], 
+                                Err_Counter: prevData.CAN3.Err_Counter, 
+                                Ovr_Counter: prevData.CAN3.Ovr_Counter
+                            },
+                            CAN4: {
+                                RX_Counter: parsedData[3], 
+                                TX_Counter: parsedData[7], 
+                                Err_Counter: prevData.CAN4.Err_Counter, 
+                                Ovr_Counter: prevData.CAN4.Ovr_Counter
+                            },
+                            Mapping: {
+                                RX_Counter: parsedData[8], 
+                                TX_Counter: parsedData[9],
+                            }
+                        }
                     });
-
-                    
                 };
                 
             };
@@ -84,8 +78,6 @@ function TargetModule({addLogMessage, setCount}) {
                 setLedColor('red');
                 addLogMessage('>> WebSocket connection error');
             };
-
-
 
         } else if (ws.current.readyState === 1){
             // WebSocket is already open, no need to create a new one
@@ -160,7 +152,3 @@ function TargetModule({addLogMessage, setCount}) {
 }
 
 export default TargetModule;
-
-
-
-

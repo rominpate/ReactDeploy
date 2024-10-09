@@ -14,9 +14,6 @@ import LogScreen        from    './LogScreen';
 
 function Dashboard() {
 
-    const [count, setCount] = useState(0);
-
-
     // State for managing rows and clicked boxes, with initial values from localStorage
     const [firstRow, setFirstRow] = useState(() => {
         const savedFirstRow = localStorage.getItem('firstRow');
@@ -36,13 +33,25 @@ function Dashboard() {
     // State for showing Log Screen
     const [logScreen, setLogScreen] = useState(false);
 
-    // State to change the Log module content in array form.
+    // State to change the Log module content in array form
     const [logInfo, setLogInfo] = useState(() => {
         const savedLogInfo = localStorage.getItem('logInfo');
         return savedLogInfo
             ? JSON.parse(savedLogInfo)
             : [`>> CAN@net NT 420  V6.04.00  with serial number 'HW907899' and IP address '169.254.186.231' connected`];
     });
+      
+    // State for the data coming from device server
+    const [dataFromDevice, setDataFromDevice] = useState({
+        CAN1: {RX_Counter: '0', TX_Counter: 'RominTX', Err_Counter: 'RominErr', Ovr_Counter: 'RominOvr'},
+        CAN2: {RX_Counter: '0', TX_Counter: 'RominTX', Err_Counter: 'RominErr', Ovr_Counter: 'RominOvr'},
+        CAN3: {RX_Counter: '0', TX_Counter: 'RominTX', Err_Counter: 'RominErr', Ovr_Counter: 'RominOvr'},
+        CAN4: {RX_Counter: '0', TX_Counter: 'RominTX', Err_Counter: 'RominErr', Ovr_Counter: 'RominOvr'},
+        Mapping: {RX_Counter: '0', TX_Counter: 'RominTX'}
+        
+      });
+
+    //console.log('dashboard', dataFromDevice);
 
     // Save state to localStorage whenever logInfo changes.
     useEffect(() => {
@@ -163,8 +172,8 @@ function Dashboard() {
     return (
         <div id="dashboard">
             <TargetModule 
-                addLogMessage={addLogMessage} 
-                setCount={setCount}
+                addLogMessage={addLogMessage}
+                setDataFromDevice={setDataFromDevice}
             />
 
             <DeviceMetrics />
@@ -188,7 +197,7 @@ function Dashboard() {
                     firstRow={firstRow}
                     secondAndThirdRows={secondAndThirdRows}
                     undisplayModule={undisplayModule}
-                    count={count}
+                    dataFromDevice={dataFromDevice}
                 />
             ) : (<LogScreen/>)}
         </div>
