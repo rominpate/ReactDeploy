@@ -43,12 +43,24 @@ function Dashboard() {
       
     // State for the data coming from device server
     const [dataFromDevice, setDataFromDevice] = useState({
-        CAN1: {RX_Counter: '0', TX_Counter: 'RominTX', Err_Counter: 'RominErr', Ovr_Counter: 'RominOvr'},
-        CAN2: {RX_Counter: '0', TX_Counter: 'RominTX', Err_Counter: 'RominErr', Ovr_Counter: 'RominOvr'},
-        CAN3: {RX_Counter: '0', TX_Counter: 'RominTX', Err_Counter: 'RominErr', Ovr_Counter: 'RominOvr'},
-        CAN4: {RX_Counter: '0', TX_Counter: 'RominTX', Err_Counter: 'RominErr', Ovr_Counter: 'RominOvr'},
-        Mapping: {RX_Counter: '0', TX_Counter: 'RominTX'}
-        
+        CAN1:          {Status: '-',  RX_Counter: '-', TX_Counter: '-', Err_Counter: '-', Ovr_Counter: '-'},
+        CAN2:          {Status: '-',  RX_Counter: '-', TX_Counter: '-', Err_Counter: '-', Ovr_Counter: '-'},
+        CAN3:          {Status: '-',  RX_Counter: '-', TX_Counter: '-', Err_Counter: '-', Ovr_Counter: '-'},
+        CAN4:          {Status: '-',  RX_Counter: '-', TX_Counter: '-', Err_Counter: '-', Ovr_Counter: '-'},
+        Mapping:       {Status: '-',  RX_Counter: '-', TX_Counter: '-'},
+        MuxDemux:      {Status: '-',  RX_Counter: '-', TX_Counter: '-'},
+        Cyclic:        {Status: '-',  RX_Counter: '-', TX_Counter: '-'},
+        ActionRules:   {Status: '-',  RX_Counter: '-', TX_Counter: '-'},
+        LoadFilter:    {Status: '-',  RX_Counter: '-', TX_Counter: '-'},
+        MQTT:          {Status: '-',  RX_Counter: '-', TX_Counter: '-'},
+        Lua:           {Status: '-',  RX_Counter: '-', TX_Counter: '-'},
+        Memory:        {Pool0: '-',  Pool1: '-', Pool2: '-', Pool3: '-', Pool4: '-'},
+        error:         {Status: '-',  AllocErr: '-', MailboxErr: '-'},
+        IP:            {IP: '-'},
+        DeviceName:    {DeviceName: '-'},
+        cpuLoad:       {cpuLoad: '-'},
+        deviceVariant: {deviceVariant: '-'},
+        SerialNumber:  {SerialNumber: '-'}
       });
 
     //console.log('dashboard', dataFromDevice);
@@ -174,9 +186,10 @@ function Dashboard() {
             <TargetModule 
                 addLogMessage={addLogMessage}
                 setDataFromDevice={setDataFromDevice}
+                dataFromDevice={dataFromDevice}
             />
 
-            <DeviceMetrics />
+            <DeviceMetrics dataFromDevice={dataFromDevice}/>
 
             <OptionsModule 
                 clearLayout={clearAllData}
@@ -186,6 +199,7 @@ function Dashboard() {
             <SelectModule 
                 handleButtonClick={handleButtonClick}
                 clickedBoxes={clickedBoxes}
+                dataFromDevice={dataFromDevice}
             />
             <LogModule 
                 logInfo={logInfo}

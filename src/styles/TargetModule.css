@@ -3,7 +3,7 @@
     position: relative;
     left: 5px;
     top: 10px;
-    width: 54em;
+    width: 65em;
     height: 55px;
     padding: 5px;
     display: flex;
@@ -77,23 +77,27 @@
 }
 
 
-.device, .device-name, .device-s-number{
+.device, .device-name, .device-s-number, .device-IP{
     display: flex;
     flex-direction: column;
-    padding-right: 35px;
+    padding-right: 25px;
     border-right: 3px solid rgb(172, 170, 170);
+}
+
+.device-name{
+    padding-right: 25px
 }
 
 .device-s-number{
     padding-right: 0;
     border-right: none;
 }
-.device p , .device-name p, .device-s-number p{
+.device p , .device-name p, .device-s-number p, .device-IP p{
     margin: 0;
     padding: 0;
 }
 
-.device p:nth-child(2), .device-name p:nth-child(2), .device-s-number p:nth-child(2){
+.device p:nth-child(2), .device-name p:nth-child(2), .device-s-number p:nth-child(2), .device-IP p:nth-child(2){
     font-weight: 800;
 }
 

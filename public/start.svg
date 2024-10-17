@@ -1,17 +1,1 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_i_11_6)">
-<path d="M21.048 0H2.952C1.324 0 0 1.324 0 2.952V21.048C0 22.676 1.324 24 2.952 24H21.048C22.676 24 24 22.676 24 21.048V2.952C24 1.324 22.676 0 21.048 0ZM20.564 7.404L9.959 18.01C9.764 18.205 9.508 18.303 9.252 18.303C8.996 18.303 8.74 18.205 8.545 18.01L3.436 12.902C3.045 12.511 3.045 11.879 3.436 11.488C3.827 11.097 4.459 11.097 4.85 11.488L9.252 15.889L19.15 5.99C19.541 5.599 20.173 5.599 20.564 5.99C20.955 6.381 20.955 7.014 20.564 7.404Z" fill="#4AB230"/>
-</g>
-<defs>
-<filter id="filter0_i_11_6" x="0" y="0" width="24" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17 0"/>
-<feBlend mode="normal" in2="shape" result="effect1_innerShadow_11_6"/>
-</filter>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" xmlns:v="https://vecta.io/nano"><g filter="url(#A)"><path d="M21.048 0H2.952C1.324 0 0 1.324 0 2.952v18.096C0 22.676 1.324 24 2.952 24h18.096C22.676 24 24 22.676 24 21.048V2.952C24 1.324 22.676 0 21.048 0zm-.484 7.404L9.959 18.01c-.195.195-.451.293-.707.293s-.512-.098-.707-.293l-5.109-5.108a1 1 0 0 1 1.414-1.414l4.402 4.401L19.15 5.99a1 1 0 0 1 1.414 1.414z" fill="#4ab230"/></g><defs><filter id="A" x="0" y="0" width="24" height="28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0"/><feBlend in="SourceGraphic" result="B"/><feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="C"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="C" operator="arithmetic" k2="-1" k3="1"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17 0"/><feBlend in2="B"/></filter></defs></svg>
